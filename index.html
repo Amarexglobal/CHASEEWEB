@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ChaseBank | Secure Digital Banking</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#f4f8ff;
+    color:#222;
+}
+
+header{
+    background:linear-gradient(135deg,#003da6,#0066ff);
+    color:white;
+    padding:20px 8%;
+}
+
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    font-size:30px;
+    font-weight:800;
+}
+
+.logo span{
+    color:#8ed1ff;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:25px;
+}
+
+nav ul li a{
+    text-decoration:none;
+    color:white;
+    font-weight:500;
+}
+
+.login-btn{
+    background:white;
+    color:#0057d9;
+    padding:10px 20px;
+    border-radius:30px;
+    text-decoration:none;
+    font-weight:600;
+}
+
+.hero{
+    padding:80px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+}
+
+.hero-text{
+    max-width:600px;
+}
+
+.hero-text h1{
+    font-size:55px;
+    margin-bottom:20px;
+}
+
+.hero-text p{
+    font-size:18px;
+    margin-bottom:25px;
+}
+
+.btn{
+    padding:14px 30px;
+    border:none;
+    border-radius:30px;
+    cursor:pointer;
+    font-weight:600;
+    margin-right:10px;
+}
+
+.primary{
+    background:white;
+    color:#0057d9;
+}
+
+.secondary{
+    background:transparent;
+    color:white;
+    border:2px solid white;
+}
+
+.hero-card{
+    background:rgba(255,255,255,0.15);
+    backdrop-filter:blur(15px);
+    padding:25px;
+    border-radius:20px;
+    min-width:320px;
+}
+
+.section{
+    padding:70px 8%;
+}
+
+.section-title{
+    text-align:center;
+    font-size:35px;
+    margin-bottom:40px;
+    color:#003da6;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:white;
+    border-radius:20px;
+    padding:25px;
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+}
+
+.card h3{
+    color:#0057d9;
+    margin-bottom:10px;
+}
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+}
+
+.stat{
+    background:#0057d9;
+    color:white;
+    text-align:center;
+    padding:25px;
+    border-radius:15px;
+}
+
+.stat h2{
+    font-size:40px;
+}
+
+.contact-form{
+    max-width:700px;
+    margin:auto;
+}
+
+input, textarea{
+    width:100%;
+    padding:12px;
+    margin:10px 0;
+    border:1px solid #ccc;
+    border-radius:10px;
+}
+
+.submit-btn{
+    background:#0057d9;
+    color:white;
+    border:none;
+    padding:12px 30px;
+    border-radius:10px;
+    margin-top:15px;
+    cursor:pointer;
+    width:100%;
+}
+
+footer{
+    background:#001f5c;
+    color:white;
+    text-align:center;
+    padding:30px;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.7);
+    z-index: 2000;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    max-width: 400px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.loader {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #0057d9;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin: 20px auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@media(max-width:900px){
+    .hero-text h1{
+        font-size:40px;
+    }
+    nav ul{
+        display:none;
+    }
+}
+</style>
+</head>
+<body>
+
+<header>
+<nav>
+    <div class="logo">Chase<span>Bank</span></div>
+
+    <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Accounts</a></li>
+        <li><a href="#">Loans</a></li>
+        <li><a href="#">Cards</a></li>
+        <li><a href="#">Business</a></li>
+        <li><a href="#">Contact</a></li>
+    </ul>
+
+    <a href="#" class="login-btn">Login</a>
+</nav>
+
+<div class="hero">
+    <div class="hero-text">
+        <h1>Banking Made Secure & Simple</h1>
+        <p>Manage your finances, transfer funds, pay bills, and access world-class banking services anytime.</p>
+        <button class="btn primary">Open Account</button>
+        <button class="btn secondary">Learn More</button>
+    </div>
+
+    <div class="hero-card">
+        <h3>Internet Banking</h3>
+        <div class="clock" id="clock"></div>
+    </div>
+</div>
+</header>
+
+<section class="section">
+    <h2 class="section-title">Our Services</h2>
+    <div class="grid">
+        <div class="card">
+            <h3>Savings Account</h3>
+            <p>Grow your money securely with competitive rates.</p>
+        </div>
+        <div class="card">
+            <h3>Current Account</h3>
+            <p>Daily banking for individuals and businesses.</p>
+        </div>
+        <div class="card">
+            <h3>Loans</h3>
+            <p>Personal, Auto and Business financing solutions.</p>
+        </div>
+        <div class="card">
+            <h3>Credit Cards</h3>
+            <p>Flexible spending with attractive rewards.</p>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <h2 class="section-title">Why Choose ChaseBank?</h2>
+    <div class="stats">
+        <div class="stat">
+            <h2>2M+</h2>
+            <p>Customers</p>
+        </div>
+        <div class="stat">
+            <h2>150+</h2>
+            <p>Branches</p>
+        </div>
+        <div class="stat">
+            <h2>99.9%</h2>
+            <p>Uptime</p>
+        </div>
+        <div class="stat">
+            <h2>24/7</h2>
+            <p>Support</p>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <h2 class="section-title">Contact Us</h2>
+    <div class="contact-form">
+        <input type="text" id="name" placeholder="Full Name">
+        <input type="email" id="email" placeholder="Email Address">
+        <textarea id="message" placeholder="Your Message"></textarea>
+        <button class="submit-btn" onclick="submitContact()">Send Message</button>
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 ChaseBank</p>
+    <p>All Rights Reserved</p>
+</footer>
+
+<!-- Unavailable Modal -->
+<div id="unavailableModal" class="modal">
+    <div class="modal-content">
+        <h3>Sorry</h3>
+        <p>Our web is currently unavailable.</p>
+        <button onclick="closeModal()" style="margin-top:15px; padding:10px 20px; background:#0057d9; color:white; border:none; border-radius:8px; cursor:pointer;">OK</button>
+    </div>
+</div>
+
+<script>
+// Live Clock
+function updateClock(){
+    let now = new Date();
+    document.getElementById("clock").innerHTML = now.toLocaleString();
+}
+setInterval(updateClock, 1000);
+updateClock();
+
+// Show Unavailable Message for all buttons
+function showUnavailable() {
+    document.getElementById("unavailableModal").style.display = "flex";
+}
+
+function closeModal() {
+    document.getElementById("unavailableModal").style.display = "none";
+}
+
+// Make all buttons show unavailable message
+document.querySelectorAll('button, .login-btn, a').forEach(btn => {
+    if (btn.textContent !== "Send Message") {  // Exclude contact form
+        btn.addEventListener('click', function(e) {
+            if (!btn.onclick) {  // Prevent double trigger
+                e.preventDefault();
+                showUnavailable();
+            }
+        });
+    }
+});
+
+// Contact Form with 2-second loader
+function submitContact() {
+    const name = document.getElementById("name").value.trim();
+    const message = document.getElementById("message").value.trim();
+
+    if (name === "" || message === "") {
+        alert("Please fill in your name and message.");
+        return;
+    }
+
+    // Show loader in modal
+    const modalContent = document.querySelector('.modal-content');
+    modalContent.innerHTML = `
+        <h3>Sending Message...</h3>
+        <div class="loader"></div>
+        <p>Please wait</p>
+    `;
+    document.getElementById("unavailableModal").style.display = "flex";
+
+    setTimeout(() => {
+        modalContent.innerHTML = `
+            <h3>Sorry</h3>
+            <p>Our web is currently unavailable.</p>
+            <button onclick="closeModal()" style="margin-top:15px; padding:10px 20px; background:#0057d9; color:white; border:none; border-radius:8px; cursor:pointer;">OK</button>
+        `;
+    }, 2000);
+}
+</script>
+
+</body>
+</html>
